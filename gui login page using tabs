@@ -1,0 +1,109 @@
+
+from tkinter import *
+from tkinter import ttk
+from tkcalendar import Calendar, DateEntry
+
+root=Tk()
+tabs= ttk.Notebook(root)
+tabs.pack(fill=BOTH,expand=True)
+
+tab1 = ttk.Frame(tabs)
+tab2 = ttk.Frame(tabs)
+tab1.pack(side=RIGHT,pady=50,padx=5)
+tab2.pack(side=RIGHT,pady=60,padx=5)
+
+tabs.add(tab1,text="Login")
+tabs.add(tab2,text="Apply For New")
+
+
+#tab2= tab2(tab2,height=500,width=500,relief=SUNKEN)
+#tab2.pack(fill=X)
+title =Label(tab2,text="Intelligence Department Registration Desk",fg="blue",font=(("areal",37)))
+title.place(x=280,y=65)
+officername= Label(tab2,text="Name",font=(("areal",10))).place(x=500,y=180)
+Employeeid= Label(tab2,text="Employee ID",font=(("areal",10))).place(x=500,y=230)   
+department= Label(tab2,text="Department",font=(("areal",10))).place(x=500,y=280)
+sq=Label(tab2,text="Security Question",font=(("areal",10))).place(x=500,y=330)
+sa=Label(tab2,text="Security Answer",font=(("areal",10))).place(x=500,y=380)
+np=Label(tab2,text="new password",font=(("areal",10))).place(x=500,y=430)
+    
+#creating inputs for this form
+    
+oni = Entry(tab2,width=40).place(x=630,y=180)
+oid = Entry(tab2,width=40).place(x=630,y=230)
+sai = Entry(tab2,width=40).place(x=630,y=380)
+npi = Entry(tab2,width=40).place(x=630,y=430)
+
+
+#cratining date of birth picker
+
+#creating button to register
+
+but =Button(tab2,text="Apply",bg='green',width=11,font='Helvetica 10 bold').place(x=700,y=570)
+
+    
+    
+#creating combo boxes for sequrity question
+question= StringVar()
+cbox = ttk.Combobox(tab2,textvariable=question,values=("What Is your favorite book?","Where did you meet your spouse?","Where is your favorite place to vacation?"))
+cbox.config(state="readonly",width=37)
+cbox.place(x=630,y=330)
+#department selection
+    
+dep =StringVar()
+odp=ttk.Combobox(tab2,textvariable=dep,values=("Directorate of Military Intelligence","Directorate of Naval Intelligence","Directorate of Air Intelligence","Intelligence Bureau","National Investigation Agency","Department of Criminal Intelligence"))
+odp.config(state="readonly",width=37)
+odp.place(x=630,y=280)
+#checkbox for the apply conformation
+
+confirm = IntVar()
+confirm.set(0)
+
+
+
+check = Checkbutton(tab2,text="I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief. " ,fg="red",variable=confirm)
+check.place(x=500,y=500)
+
+#creating Login page for officer registration
+title =Label(tab1,text="Intelligence Department of India",fg="blue",font=(("areal",30)))
+uname = Label(tab1,text="User Name",font='Helvetica 10 bold')
+password=Label(tab1,text="Password",font='Helvetica 10 bold')
+
+#creating entry buttons
+unameinput = ttk.Entry(tab1,width=35)
+passinput = ttk.Entry(tab1,width=35)
+
+#Login and create account for intelligence department officer
+
+login =Button(tab1,text="Access",bg='green',width=11,font='Helvetica 10 bold').place(x=640,y=330)
+#create =Button(tab1,text="Apply For New")   # connecting this button to new register pageof officer
+
+#packing these widgets to use........
+title.pack()
+uname.pack()
+password.pack()
+unameinput.pack()
+passinput.pack()
+#create.pack()
+
+#geometric arrangement of my log inpage
+
+
+title.place(x=400,y=150)   #placed title at center page
+
+uname.place(x=500,y=260)   #name
+password.place(x=500,y=290)   #password
+
+unameinput.place(x=590,y=260)   #name input
+passinput.place(x=590,y=290)    #pass input
+
+#placing buttons.....
+
+#create.place(x=680,y=330)
+
+
+root.geometry("1366x768")
+root=mainloop()
+
+    
+
